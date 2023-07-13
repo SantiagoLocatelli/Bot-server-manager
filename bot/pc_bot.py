@@ -3,11 +3,11 @@ from discord.ext import commands
 
 # Configura el prefijo de los comandos del bot
 prefix = "!"
-intents = discord.Intents.default()
-intents.message_content = True
+# intents = discord.Intents.default()
+# intents.message_content = True
 
 # Crea una instancia del bot
-bot = commands.Bot(command_prefix=prefix, intents=intents)
+bot = commands.Bot(command_prefix=prefix)
 
 # Evento que se ejecuta cuando el bot se conecta correctamente
 @bot.event
