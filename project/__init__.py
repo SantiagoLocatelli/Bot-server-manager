@@ -7,10 +7,6 @@ from flask_cors import CORS
 from flask_restful import Api
 from log import LOG
 from project.api.v1.ticket_api import Ticket
-from dotenv import load_dotenv
-from bot import pc_bot
-
-load_dotenv()
 
 manager_dict = Manager().dict()
 
@@ -65,8 +61,6 @@ def init_app():
     return application
 
 app = init_app()
-token = os.getenv("DISCORD_TOKEN")
-pc_bot.bot.run(token)
 
 @app.route("/")
 def health_check():
