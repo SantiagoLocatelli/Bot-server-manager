@@ -60,7 +60,7 @@ psql -p 5434 -U postgres -h 0.0.0.0
 
 
 ## Remote 
-PGPASSWORD=0aFeWQNYnsFSpYDeaW9jwpDhxKfQXRC2 psql -h dpg-chsk4uhmbg57s5r5m1d0-a.oregon-postgres.render.com -U support main_070f
+PGPASSWORD=0aFeWQNYnsFSpYDeaW9jwpDhxKfQXRC2 psql -h dpg-chsk4uhmbg57s5r5m1d0-a.oregon-postgres.render.com -U support pensamiento_computacional
 
 
 # BOTARDO
