@@ -1,11 +1,13 @@
 import discord
 from discord.ext import commands
-# from dotenv import load_dotenv
-# import os
-# load_dotenv()
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 # Configura el prefijo de los comandos del bot
 prefix = "!"
+
+# this is necessary depending on the version od discord.py
 # intents = discord.Intents.default()
 # intents.message_content = True
 
@@ -41,5 +43,5 @@ async def suma(ctx, num1: int, num2: int):
     resultado = num1 + num2
     await ctx.send(f"La suma de {num1} y {num2} es {resultado}")
 
-# token = os.getenv("DISCORD_TOKEN")
-# bot.run("MTEyODg3MDk2ODMzNzYzNzM3Nw.GBtw50.I0mUSPpF-d_-p7gHEjqp4FQpl-_EXXNYVWeEiE")
+token = os.getenv("DISCORD_TOKEN")
+bot.run(token)
