@@ -1,9 +1,10 @@
 OK = 0
-TICKET_NOT_FOUND = 1
-
+STUDENT_NOT_FOUND = 1
+STUDENT_ALREADY_REGISTERED = 2
 
 
 response_code_map = {
     OK: "ok",
-    TICKET_NOT_FOUND: "No se encontró el ticket solicitado.",
+    STUDENT_NOT_FOUND: "No se encontró el alumno solicitado.",
+    STUDENT_ALREADY_REGISTERED: "El DNI ya se encuentra registrado.",
 }

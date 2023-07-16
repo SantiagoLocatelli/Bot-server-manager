@@ -13,6 +13,12 @@ class Student(Resource, MethodResource):
     @use_kwargs({'dni': fields.Str(required=True)}, location=('query'))
     def get(self, dni):
 
-        response = student_service.get_student_by_dni(dni)
-        return generate_response(OK, response, HTTPStatus.OK)
+        code, response, code_http = student_service.get_student_by_dni(dni)
+        return generate_response(code, response, code_http)
     
+
+class RegisterStudent(Resource, MethodResource):
+    @log_endpoint
+    def put(self, dni):
+        code, response, code_http = student_service.register_student(dni)
+        return generate_response(code, response, code_http)

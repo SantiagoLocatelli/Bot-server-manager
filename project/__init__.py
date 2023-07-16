@@ -6,13 +6,15 @@ from flask_apispec.extension import FlaskApiSpec
 from flask_cors import CORS
 from flask_restful import Api
 from log import LOG
-from project.api.v1.student_api import Student
+from project.api.v1.student_api import Student, RegisterStudent
 
 manager_dict = Manager().dict()
 
 def _register_blueprints(api, api_spec):
     api.add_resource(Student, '/v1/student')
     api_spec.register(Student)
+    api.add_resource(RegisterStudent, '/v1/student/<int:dni>/register')
+    api_spec.register(RegisterStudent)
 
 def _runtime_error_handler(e):
     LOG.error(traceback.format_exc())
