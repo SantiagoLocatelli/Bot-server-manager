@@ -15,7 +15,7 @@ def get_student_by_dni(dni):
 
         return OK, student.to_dict(), HTTPStatus.OK
 
-def register_student(dni):
+def register_student(dni, discord_id):
     with BaseSQLConnection("pensamiento_computacional") as base_dao:
         student_dao = StudentDao(base_dao.get_session())
         student = student_dao.get_student_by_dni(dni)
@@ -27,6 +27,7 @@ def register_student(dni):
             return STUDENT_ALREADY_REGISTERED, {}, HTTPStatus.BAD_REQUEST
         
         student.registrado = True
+        student.discord_id = discord_id
         student_dao.session.commit()
 
         return OK, student.to_dict(), HTTPStatus.OK

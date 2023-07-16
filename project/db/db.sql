@@ -12,6 +12,8 @@ CREATE TABLE "alumno" (
     "nombre" VARCHAR(100) NOT NULL,
     "cuatrimestre_id" INTEGER NOT NULL,
     "registrado" BOOLEAN DEFAULT false,
+    "estado" INTEGER NOT NULL,
+    "discord_id" VARCHAR(30),
     PRIMARY KEY ("DNI"),
     CONSTRAINT cuatrimestre_fk FOREIGN KEY(cuatrimestre_id) REFERENCES "cuatrimestre"(id) 
 );
