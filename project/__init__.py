@@ -6,7 +6,7 @@ from flask_apispec.extension import FlaskApiSpec
 from flask_cors import CORS
 from flask_restful import Api
 from log import LOG
-from project.api.v1.student_api import Student, RegisterStudent
+from project.api.v1.student_api import Student, RegisterStudent, ApprovedStudents
 
 manager_dict = Manager().dict()
 
@@ -15,6 +15,9 @@ def _register_blueprints(api, api_spec):
     api_spec.register(Student)
     api.add_resource(RegisterStudent, '/v1/student/<string:dni>/register')
     api_spec.register(RegisterStudent)
+    api.add_resource(ApprovedStudents, '/v1/student/approved')
+    api_spec.register(ApprovedStudents)
+
 
 def _runtime_error_handler(e):
     LOG.error(traceback.format_exc())

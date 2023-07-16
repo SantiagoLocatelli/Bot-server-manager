@@ -9,5 +9,11 @@ class StudentDao(BaseDao):
             .filter(Student.DNI == dni).first()
 
         return student
+    
+    def get_students_by_states(self, states):
+        students = self.session.query(Student) \
+            .filter(Student.estado.in_(states)).all()
+        
+        return students
 
     

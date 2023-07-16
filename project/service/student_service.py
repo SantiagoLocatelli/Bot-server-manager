@@ -31,4 +31,10 @@ def register_student(dni, discord_id):
         student_dao.session.commit()
 
         return OK, student.to_dict(), HTTPStatus.OK
+    
+def get_students_by_states(states):
+    with BaseSQLConnection("pensamiento_computacional") as base_dao:
+        student_dao = StudentDao(base_dao.get_session())
+        students = student_dao.get_students_by_states(states)
 
+        return OK, [s.to_dict() for s in students], HTTPStatus.OK
