@@ -13,7 +13,7 @@ manager_dict = Manager().dict()
 def _register_blueprints(api, api_spec):
     api.add_resource(Student, '/v1/student')
     api_spec.register(Student)
-    api.add_resource(RegisterStudent, '/v1/student/<int:dni>/register')
+    api.add_resource(RegisterStudent, '/v1/student/<string:dni>/register')
     api_spec.register(RegisterStudent)
 
 def _runtime_error_handler(e):
