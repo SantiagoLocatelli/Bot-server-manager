@@ -8,13 +8,13 @@ CREATE TABLE "cuatrimestre" (
 );
 
 CREATE TABLE "alumno" (
-    "DNI" VARCHAR(11) NOT NULL,
+    "cuit" VARCHAR(11) NOT NULL,
     "nombre" VARCHAR(100) NOT NULL,
     "cuatrimestre_id" INTEGER NOT NULL,
     "registrado" BOOLEAN DEFAULT false,
     "estado" INTEGER NOT NULL,
     "discord_id" VARCHAR(30),
-    PRIMARY KEY ("DNI"),
+    PRIMARY KEY ("cuit"),
     CONSTRAINT cuatrimestre_fk FOREIGN KEY(cuatrimestre_id) REFERENCES "cuatrimestre"(id) 
 );
 
