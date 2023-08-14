@@ -17,6 +17,13 @@ class Student(Resource, MethodResource):
         return generate_response(code, response, code_http)
     
 
+class Students(Resource, MethodResource):
+    @log_endpoint
+    @use_kwargs({'filename': fields.Str(required=True), 'cuatrimestre': fields.Integer(required=True)}, location=('json'))
+    def post(self, filename, cuatrimestre):
+        code, response, code_http = student_service.loads_students(filename, cuatrimestre)
+        return generate_response(code, response, code_http)
+
 class RegisterStudent(Resource, MethodResource):
     @log_endpoint
     @use_kwargs({'discord_id': fields.Str(required=True)}, location=('json'))

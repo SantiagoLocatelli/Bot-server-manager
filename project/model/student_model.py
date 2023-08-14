@@ -27,7 +27,8 @@ class Period(Base):
 
 class Student(Base):
     __tablename__ = 'alumno'
-    DNI = Column(INTEGER, nullable=False, primary_key=True)
+    id = Column(INTEGER, autoincrement=True, nullable=False, primary_key=True)
+    cuit = Column(VARCHAR(11), nullable=False, primary_key=True)
     nombre = Column(VARCHAR(100), nullable=False)
     discord_id = Column(VARCHAR(30))
     cuatrimestre_id = Column(INTEGER, ForeignKey("cuatrimestre.id"), nullable=False)
@@ -35,17 +36,18 @@ class Student(Base):
     cuatrimestre = relationship("Period", uselist=False)
     estado = Column(INTEGER, default=StudentState.CURSANDO.value)
 
-    def __init__(self, DNI, nombre, cuatrimestre, registrado, estado=None, discord_id=None):
-        self.DNI = DNI
+    def __init__(self, cuit, nombre, cuatrimestre, registrado, estado=None, discord_id=None):
+        self.cuit = cuit
         self.nombre = nombre
-        self.cuatrimestre = cuatrimestre
+        self.cuatrimestre_id = cuatrimestre
         self.registrado = registrado
         self.estado = estado
         self.discord_id = discord_id
 
     def to_dict(self):
         return {
-            'DNI': self.DNI,
+            'id': self.id,
+            'cuit': self.cuit,
             'nombre': self.nombre,
             'discord_id': self.discord_id,
             'cuatrimestre': self.cuatrimestre.to_dict(),

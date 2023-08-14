@@ -8,6 +8,7 @@ CREATE TABLE "cuatrimestre" (
 );
 
 CREATE TABLE "alumno" (
+    "id" SERIAL NOT NULL,
     "cuit" VARCHAR(11) NOT NULL,
     "nombre" VARCHAR(100) NOT NULL,
     "cuatrimestre_id" INTEGER NOT NULL,
