@@ -47,7 +47,7 @@ class Student(Base):
     def to_dict(self):
         return {
             'id': self.id,
-            'cuit': self.cuit,
+            'dni': self.cuit,
             'nombre': self.nombre,
             'discord_id': self.discord_id,
             'cuatrimestre': self.cuatrimestre.to_dict(),
