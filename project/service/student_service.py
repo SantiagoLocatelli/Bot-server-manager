@@ -33,7 +33,7 @@ def register_student(dni, discord_id):
                 
                 student.registrado = True
                 student.discord_id = discord_id
-                # student_dao.session.commit()
+                student_dao.session.commit()
 
                 return OK, student.to_dict(), HTTPStatus.OK
         except:
