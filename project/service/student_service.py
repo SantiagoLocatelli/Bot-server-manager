@@ -17,7 +17,7 @@ def get_student_by_dni(dni):
 
         return OK, student.to_dict(), HTTPStatus.OK
 
-def register_student(dni, discord_id):
+def register_student(identificador, discord_id):
     cantidad = 0
     cantidad_maxima = 5
     while cantidad < cantidad_maxima:
@@ -25,7 +25,7 @@ def register_student(dni, discord_id):
             db_name = current_app.config.get('DB_NAME')
             with BaseSQLConnection(db_name) as base_dao:
                 student_dao = StudentDao(base_dao.get_session())
-                student = student_dao.get_student_by_dni(dni)
+                student = student_dao.get_student_by_identificador(identificador)
                 # student = student_dao.get_student_by_name(dni)
 
                 if not student:
