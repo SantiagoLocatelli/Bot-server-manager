@@ -25,8 +25,8 @@ def register_student(dni, discord_id):
             db_name = current_app.config.get('DB_NAME')
             with BaseSQLConnection(db_name) as base_dao:
                 student_dao = StudentDao(base_dao.get_session())
-                # student = student_dao.get_student_by_dni(dni)
-                student = student_dao.get_student_by_name(dni)
+                student = student_dao.get_student_by_dni(dni)
+                # student = student_dao.get_student_by_name(dni)
 
                 if not student:
                     return STUDENT_NOT_FOUND, {}, HTTPStatus.NOT_FOUND

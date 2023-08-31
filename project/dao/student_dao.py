@@ -3,10 +3,10 @@ from project.utils.sql_connection import BaseDao
 
 class StudentDao(BaseDao):
 
-    def get_student_by_dni(self, dni):
+    def get_student_by_identificador(self, identificador):
 
         student = self.session.query(Student) \
-            .filter(Student.cuit == dni).first()
+            .filter(Student.cuit == identificador).first()
 
         return student
     
