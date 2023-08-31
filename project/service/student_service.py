@@ -4,10 +4,11 @@ from project.responses.response_constants import OK, STUDENT_NOT_FOUND, STUDENT_
 from project.dao.student_dao import StudentDao
 from project.utils.sql_connection import BaseSQLConnection
 from project.model.student_model import Student, StudentState
+from flask import current_app
 
 def get_student_by_dni(dni):
-
-    with BaseSQLConnection("pensamiento_computacional") as base_dao:
+    db_name = current_app.config.get('DB_NAME')
+    with BaseSQLConnection(db_name) as base_dao:
         student_dao = StudentDao(base_dao.get_session())
         student = student_dao.get_student_by_dni(dni)
 
@@ -21,9 +22,11 @@ def register_student(dni, discord_id):
     cantidad_maxima = 5
     while cantidad < cantidad_maxima:
         try:
-            with BaseSQLConnection("pensamiento_computacional") as base_dao:
+            db_name = current_app.config.get('DB_NAME')
+            with BaseSQLConnection(db_name) as base_dao:
                 student_dao = StudentDao(base_dao.get_session())
-                student = student_dao.get_student_by_dni(dni)
+                # student = student_dao.get_student_by_dni(dni)
+                student = student_dao.get_student_by_name(dni)
 
                 if not student:
                     return STUDENT_NOT_FOUND, {}, HTTPStatus.NOT_FOUND
@@ -41,7 +44,8 @@ def register_student(dni, discord_id):
 
 
 def get_students_by_states(states):
-    with BaseSQLConnection("pensamiento_computacional") as base_dao:
+    db_name = current_app.config.get('DB_NAME')
+    with BaseSQLConnection(db_name) as base_dao:
         student_dao = StudentDao(base_dao.get_session())
         students = student_dao.get_students_by_states(states)
 
@@ -54,7 +58,8 @@ def loads_students(filename, cuatrimestre):
         _headers = inscriptos.readline()   
         lines = inscriptos.readlines()
         print(lines)
-        with BaseSQLConnection("pensamiento_computacional") as base_dao:
+        db_name = current_app.config.get('DB_NAME')
+        with BaseSQLConnection(db_name) as base_dao:
             student_dao = StudentDao(base_dao.get_session())
             cantidad = 0
             for line in lines:

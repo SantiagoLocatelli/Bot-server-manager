@@ -26,9 +26,10 @@ class Students(Resource, MethodResource):
 
 class RegisterStudent(Resource, MethodResource):
     @log_endpoint
-    @use_kwargs({'discord_id': fields.Str(required=True)}, location=('json'))
-    def put(self, dni, discord_id):
-        code, response, code_http = student_service.register_student(dni, discord_id)
+    @use_kwargs({'discord_id': fields.Str(required=True),
+                 'name': fields.Str(required=True)}, location=('json'))
+    def put(self, name, discord_id):
+        code, response, code_http = student_service.register_student(name, discord_id)
         return generate_response(code, response, code_http)
     
 class ApprovedStudents(Resource, MethodResource):

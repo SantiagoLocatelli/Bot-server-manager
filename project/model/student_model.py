@@ -27,7 +27,7 @@ class Period(Base):
 
 class Student(Base):
     __tablename__ = 'alumno'
-    id = Column(INTEGER, autoincrement=True, nullable=False, primary_key=True)
+    # id = Column(INTEGER, autoincrement=True, nullable=False, primary_key=True)
     cuit = Column(VARCHAR(11), nullable=False, primary_key=True)
     nombre = Column(VARCHAR(100), nullable=False)
     discord_id = Column(VARCHAR(30))
@@ -46,7 +46,7 @@ class Student(Base):
 
     def to_dict(self):
         return {
-            'id': self.id,
+            # 'id': self.id,
             'DNI': self.cuit,
             'nombre': self.nombre,
             'discord_id': self.discord_id,

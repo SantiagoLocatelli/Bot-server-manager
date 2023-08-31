@@ -10,7 +10,8 @@ def get_db_connection_string():
     db_pass = current_app.config.get('POSTGRES_PASSWORD')
     db_host = current_app.config.get('POSTGRES_IP')
     db_port = current_app.config.get('POSTGRES_PORT')
-    connection_string = 'postgresql+psycopg2://{}:{}@{}:{}/DB_NAME'.format(db_user, db_pass, db_host, db_port)
+    # connection_string = 'postgresql+psycopg2://{}:{}@{}:{}/DB_NAME'.format(db_user, db_pass, db_host, db_port)
+    connection_string = 'mysql+pymysql://{}:{}@{}:{}/DB_NAME?charset=utf8'.format(db_user, db_pass, db_host, db_port)
     return connection_string 
     # return 'postgresql://support:0aFeWQNYnsFSpYDeaW9jwpDhxKfQXRC2@dpg-chsk4uhmbg57s5r5m1d0-a/main_070f'
 

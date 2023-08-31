@@ -10,6 +10,13 @@ class StudentDao(BaseDao):
 
         return student
     
+    def get_student_by_name(self, name):
+
+        student = self.session.query(Student) \
+            .filter(Student.nombre == name).first()
+
+        return student
+    
     def get_students_by_states(self, states):
         students = self.session.query(Student) \
             .filter(Student.estado.in_(states)).all()

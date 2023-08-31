@@ -10,27 +10,30 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class DevConfig:
     ENV = "dev"
-    POSTGRES_USER = "postgres"
-    POSTGRES_PASSWORD = "pass"
-    POSTGRES_IP = "0.0.0.0"
-    POSTGRES_PORT = "5434"
+    POSTGRES_USER = "root"
+    POSTGRES_PASSWORD = "admin"
+    POSTGRES_IP = "localhost"
+    POSTGRES_PORT = "3306"
     APISPEC_SWAGGER_URL = '/swagger/'
     APISPEC_SWAGGER_UI_URL = '/swagger-ui/'
     THIS_URL = "http://0.0.0.0:5001"
+    DB_NAME = 'pensamiento_computacional'
 
 class LocalConfig:
     ENV = "local"
-    POSTGRES_USER = "postgres"
-    POSTGRES_IP = "0.0.0.0"
-    POSTGRES_PORT = "5434"
-    POSTGRES_PASSWORD = "pass"
+    POSTGRES_USER = "root"
+    POSTGRES_IP = "localhost"
+    POSTGRES_PORT = "3306"
+    POSTGRES_PASSWORD = "admin"
     THIS_URL = "http://0.0.0.0:5001"
+    DB_NAME = 'pensamiento_computacional'
 
 class ProdConfig:
     ENV = "prod"
-    POSTGRES_USER = "support"
-    POSTGRES_IP = "dpg-chsk4uhmbg57s5r5m1d0-a.oregon-postgres.render.com"
-    POSTGRES_PASSWORD = "0aFeWQNYnsFSpYDeaW9jwpDhxKfQXRC2"
-    POSTGRES_PORT = "5432"
+    POSTGRES_USER = "u101170_FUwsSHLLAZ"
+    POSTGRES_IP = "54.37.204.19"
+    POSTGRES_PASSWORD = "0tavs5ChqJ9+p=kg3EizA12g"
+    POSTGRES_PORT = "3306"
     APISPEC_SWAGGER_URL = '/swagger/'
     APISPEC_SWAGGER_UI_URL = '/swagger-ui/'
+    DB_NAME = 's101170_PensamientoComputacional'

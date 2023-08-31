@@ -21,3 +21,5 @@ apispec==5.2.2
 PyJWT==1.7.1
 bcrypt==3.2.0
 discord.py==1.7.3
+PyMySQL==0.9.3
+Flask-MySQL==1.4.0
