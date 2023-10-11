@@ -80,5 +80,6 @@ https://discord.com/oauth2/authorize?client_id=1128870968337637377&scope=bot&per
 sudo apt install mysql-client-core-8.0
 sudo apt install mariadb-server
 mysql -h 54.37.204.19 -u u101170_FUwsSHLLAZ -p
+0tavs5ChqJ9+p=kg3EizA12g
 use s101170_PensamientoComputacional;
 
