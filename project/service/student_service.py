@@ -53,7 +53,7 @@ def get_students_by_states(states):
     
 def loads_students(filename, cuatrimestre):
     estado = StudentState.CURSANDO.value
-    source = 'project/db/2023 2C/'
+    source = 'project/db/2024 verano/'
     with open(f"{source}{filename}") as inscriptos:
         _headers = inscriptos.readline()   
         lines = inscriptos.readlines()

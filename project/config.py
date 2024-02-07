@@ -31,8 +31,8 @@ class LocalConfig:
 class ProdConfig:
     ENV = "prod"
     POSTGRES_USER = "u101170_FUwsSHLLAZ"
-    POSTGRES_IP = "54.37.204.19"
-    POSTGRES_PASSWORD = "0tavs5ChqJ9+p=kg3EizA12g"
+    POSTGRES_IP = "db-fde-02.sparkedhost.us"
+    POSTGRES_PASSWORD = "8ABhJk7uTxsig9Bo.1S!adG3"
     POSTGRES_PORT = "3306"
     APISPEC_SWAGGER_URL = '/swagger/'
     APISPEC_SWAGGER_UI_URL = '/swagger-ui/'

@@ -79,7 +79,12 @@ https://discord.com/oauth2/authorize?client_id=1128870968337637377&scope=bot&per
 
 sudo apt install mysql-client-core-8.0
 sudo apt install mariadb-server
-mysql -h 54.37.204.19 -u u101170_FUwsSHLLAZ -p
-0tavs5ChqJ9+p=kg3EizA12g
+mysql -h db-fde-02.sparkedhost.us -u u101170_FUwsSHLLAZ -p
+8ABhJk7uTxsig9Bo.1S!adG3
 use s101170_PensamientoComputacional;
 
+
+insert into alumno (cuit, nombre, cuatrimestre_id, registrado, estado, discord_id) values ('42930636', 'OJEDA ABRIL', 1, 0, 1, NULL);
+
+
+export FLASK_APP=project/__init__.py &&  python3 manage.py run
