@@ -88,3 +88,6 @@ insert into alumno (cuit, nombre, cuatrimestre_id, registrado, estado, discord_i
 
 
 export FLASK_APP=project/__init__.py &&  python3 manage.py run
+
+##### obtener alumnos repetidos
+select cuit from alumno group by cuit having count(*) = 2;
