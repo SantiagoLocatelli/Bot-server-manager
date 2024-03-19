@@ -10,7 +10,7 @@ def get_student_by_dni(dni):
     db_name = current_app.config.get('DB_NAME')
     with BaseSQLConnection(db_name) as base_dao:
         student_dao = StudentDao(base_dao.get_session())
-        student = student_dao.get_student_by_dni(dni)
+        student = student_dao.get_student_by_identificador(dni)
 
         if not student:
             return STUDENT_NOT_FOUND, {}, HTTPStatus.NOT_FOUND
@@ -26,7 +26,6 @@ def register_student(identificador, discord_id):
             with BaseSQLConnection(db_name) as base_dao:
                 student_dao = StudentDao(base_dao.get_session())
                 student = student_dao.get_student_by_identificador(identificador)
-                # student = student_dao.get_student_by_name(dni)
 
                 if not student:
                     return STUDENT_NOT_FOUND, {}, HTTPStatus.NOT_FOUND
@@ -53,7 +52,7 @@ def get_students_by_states(states):
     
 def loads_students(filename, cuatrimestre):
     estado = StudentState.CURSANDO.value
-    source = 'project/db/2024 verano/'
+    source = 'project/db/2024 1C/'
     with open(f"{source}{filename}") as inscriptos:
         _headers = inscriptos.readline()   
         lines = inscriptos.readlines()
