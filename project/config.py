@@ -17,7 +17,7 @@ class DevConfig:
     APISPEC_SWAGGER_URL = '/swagger/'
     APISPEC_SWAGGER_UI_URL = '/swagger-ui/'
     THIS_URL = "http://0.0.0.0:5001"
-    DB_NAME = 'pensamiento_computacional'
+    DB_NAME = 's101170_PensamientoComputacional'
 
 class LocalConfig:
     ENV = "local"
@@ -26,7 +26,7 @@ class LocalConfig:
     POSTGRES_PORT = "3306"
     POSTGRES_PASSWORD = "admin"
     THIS_URL = "http://0.0.0.0:5001"
-    DB_NAME = 'pensamiento_computacional'
+    DB_NAME = 's101170_PensamientoComputacional'
 
 class ProdConfig:
     ENV = "prod"

@@ -8,8 +8,9 @@ import json
 ROL_ESTUDIANTE = 'Estudiante'
 ROL_ADMIN = 'admin'
 SERVER_IDS = {
-  '1090814357811765248': "Pensamiento Computacional",
-  '1128818251510591589': "Santi test"
+  '1090814357811765248': "Pensamiento Computacional - UBA XXI",
+  '1128818251510591589': "Santi test",
+  '1219403167029268672': 'Pensamiento Computacional - Las Heras'
 }
 
 # Configura el prefijo de los comandos del bot
