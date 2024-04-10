@@ -1,9 +1,7 @@
-from keep_alive import keep_alive
 import discord
 from discord.ext import commands
 from api_requests import get_home, get_student, register_student, obtener_aprobados
 import json
-
 
 ROL_ESTUDIANTE = 'Estudiante'
 ROL_ADMIN = 'admin'
