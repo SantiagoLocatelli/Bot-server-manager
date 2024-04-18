@@ -91,3 +91,99 @@ export FLASK_APP=project/__init__.py &&  python3 manage.py run
 ##### obtener alumnos repetidos
 select cuit from alumno group by cuit having count(*) > 1;
 
+
+# como esta estructurado el proyecto?
+
+Se resume en dos programas. Uno es el bot y el otro es la API. La idea es que el bot reciba los comandos de los alumnos y le vaya pegando a la API a medida que se necesite. Es la API quien se comunica con la base de datos, quien realmente da de baja o de alta a un alumno, el bot delega este comportamiento a la API.
+
+# Que hacer a penas descargamos el repositorio?
+
+## API
+
+En un bash, parados en la raiz del proyecto, tiramos el siguiente comando para crear el virtual environment de python 
+```
+python3 -m venv api_venv
+```
+
+Una vez creado tenemos que activar el venv, lo hacemos con el comando 
+```
+source api_venv/bin/activate
+```
+
+Una vez activado tenemos que instalar todas las dependencias
+```
+pip install -r requirements.txt
+```
+
+Una vez hecho todo eso ya estamos en condiciones de levantar la API.
+
+## BOT
+
+Es un proceso muy similar. No paramos dentro de la carpeta bot y en un bash ejecutamos.
+```
+python3 -m venv bot_venv
+source bot_venv/bin/activate
+pip install -r requirements.txt
+```
+
+Una vez ejecutado todos esos comandos estamos en condiciones de correr el BOT localmente.
+
+# Como correr la API localmente?
+
+Si estas el VS Code es muy facil, en la carpeta .vscode ya esta configurado el archivo launch.json para poder levantar la api simplemente desde la seccion Run and Debug del VS Code.
+
+
+Para levantar la API directamente desde el bash podemos hacer:
+```
+source api_venv/bin/activate
+FLASK_APP="project/__init__.py"
+python3 manage.py run
+```
+
+# Como correr el BOT localmente?
+
+Para levantar el BOT directamente desde el bash podemos hacer:
+```
+source bot_venv/bin/activate
+python3 main.py
+```
+
+# Como nos conectamos a la db?
+
+Yo tuve que instalar algunas dependencias primero
+```
+sudo apt install mysql-client-core-8.0
+sudo apt install mariadb-server
+```
+
+Para entrar a la db:
+```
+mysql -h db-fde-02.sparkedhost.us -u u101170_FUwsSHLLAZ -p
+```
+
+Nos va a pedir una contraseña
+```
+8ABhJk7uTxsig9Bo.1S!adG3
+```
+
+Y nos tenemos que cambiar de schema, lo hacemos
+```
+use s101170_PensamientoComputacional;
+```
+
+Y ahi ya estamos listos para hacer consultas, insertar, etc.
+
+# Como insertar una nueva lista de alumnos de un nuevo cuatri?
+
+Primero que nada, hay que insertar un nuevo cuatrimestre en la tabla de cuatrimestre, lo hacemos:
+```
+insert into cuatrimestre (description) ('2024 1C');
+```
+
+Luego, hay que agregar el archivo csv de los alumnos en la carpeta correspondiente dentro de la carpeta db. Es importante que el archivo csv mantenga la misma estructura que los otros archivos, usarlos como guia.
+
+Una vez agregado este archivo, lo que se tiene que hacer es levantar la API localmente y ejecutar el endpoint que tiene la terminacion '/v1/students' y de tipo POST, el cual el body tiene dos parametros:
+- filename: es el path relativo en el que se encuentra el archivo con los alumnos, por ejemplo, project/db/2024 1C/inscriptos 2024 1C.csv
+- cuatrimestre: el id de cuatrimestre en el cual se quieren insertar los alumnos, este id es el que se genera en el primer paso.
+
+Una vez ejecutado todo esto correctamente ya se van encontrar los alumnos en la DB.
